@@ -79,28 +79,40 @@ public class PlayerREGULAR : PlayerState {
 
 
         //ANIMATION STUFF
-        if (rb2d.velocity.y >= 0 && jumped)
+        
+        if(rb2d.velocity.y > 0 && jumped)
         {
-            anim.SetBool("Falling", false);
             anim.SetBool("Jumped", true);
             anim.SetBool("Moving", false);
         }
-        else if(rb2d.velocity.y <= 0 && jumped)
+        else if(Mathf.Abs(rb2d.velocity.x) >= 0.05f)
         {
-            anim.SetBool("Falling", false);
+            anim.SetBool("Moving", true);
+        }
+        else
+        {
+            anim.SetBool("Jumped", false);
             anim.SetBool("Moving", false);
         }
-        else if(rb2d.velocity.y <= 0 && !jumped)
+
+        /*
+        if (rb2d.velocity.y > 0 && jumped)
+        {
+            anim.SetBool("Moving", false);
+            anim.SetBool("Falling", false);
+            anim.SetBool("Jumped", true);
+        }
+        else if (rb2d.velocity.y < 0 && jumped && Mathf.Abs(rb2d.velocity.x) >= 0.05f)
+        {
+            anim.SetBool("Falling", false);
+        }
+        else if (Mathf.Abs(rb2d.velocity.x) >= 0.05f && !jumped)
+        {
+            anim.SetBool("Moving", true);
+        }
+        else if (rb2d.velocity.y < 0 && !jumped)
         {
             anim.SetBool("Falling", true);
-            anim.SetBool("Moving", false);
-            
-        }
-        else if(rb2d.velocity.x != 0)
-        {
-            anim.SetBool("Falling", false);
-            anim.SetBool("Jumped", false);
-            anim.SetBool("Moving", true);
         }
         else
         {
@@ -108,6 +120,8 @@ public class PlayerREGULAR : PlayerState {
             anim.SetBool("Jumped", false);
             anim.SetBool("Moving", false);
         }
+        */
+
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

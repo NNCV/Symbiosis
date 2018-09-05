@@ -32,5 +32,4 @@ public class CameraMovementManager : MonoBehaviour {
             transform.position = new Vector3(xMaxReq, transform.position.y, transform.position.z);
         }
     }
-
 }
