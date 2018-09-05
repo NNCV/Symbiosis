@@ -23,8 +23,6 @@ public class PlayerREGULAR : PlayerState {
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-        
-
 
         //MOVEMENT
         if (Input.GetAxisRaw("Horizontal") != 0f)
